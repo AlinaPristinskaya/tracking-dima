@@ -10,11 +10,21 @@
 
 import Header from "../components/Header";
 import Map from "../components/Map";
+
 export default {
   name: 'Home',
+  props: {
+    // settings: {
+    //   default: 'string'
+    // }
+  },
   components: {
     Map,
     Header,
-  }
+
+  },
+  // data: () => ({
+  //   info:null,
+  // }),
 }
 </script>

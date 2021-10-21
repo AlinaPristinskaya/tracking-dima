@@ -5,8 +5,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import style from '@/assets/css/style.css'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import VuePlugin from '@/plugin/VuePlugin';
-import conection from "@/plugin/modules/conection";
+import Vuex from 'vuex'
+import store from './store';
 
 Vue.use(VueGoogleMaps, {
     load: {
@@ -15,15 +15,16 @@ Vue.use(VueGoogleMaps, {
     },
   }
 );
+Vue.use(Vuex)
 Vue.use(ElementUI);
-Vue.use(VuePlugin);
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   style,
+  store,
   render: h => h(App),
   mounted () {
-    conection.created();
   }
 }).$mount('#app')
