@@ -16,31 +16,33 @@
           </span>Телефон:</span>
           <a href="tel: +380667984792" class="description__data">+380667984792</a>
         </li>
-        <li>
-        <span class="description__title"><span>
-          <i  style="width: 16px; height: 16px; " class="el-icon-s-data"></i>
-        </span>Рейтинг:</span>
-          <span class="description__data"> <el-rate v-model="value1"></el-rate></span>
-        </li>
-        <li>
-        <span class="description__title"><span>
-          <i class="el-icon-s-promotion"></i>
-        </span>Доставка</span>
-          <span class="description__data">93</span>
-        </li>
-        <li>
-        <span class="description__title"><span>
-          <i class="el-icon-info"></i>
-        </span>В IPOST c:</span>
-          <span class="description__data">14.10.2020</span>
-        </li>
+<!--        <li>-->
+<!--        <span class="description__title"><span>-->
+<!--          <i  style="width: 16px; height: 16px; " class="el-icon-s-data"></i>-->
+<!--        </span>Рейтинг:</span>-->
+<!--          <span class="description__data"> <el-rate v-model="value1"></el-rate></span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--        <span class="description__title"><span>-->
+<!--          <i class="el-icon-s-promotion"></i>-->
+<!--        </span>Доставка</span>-->
+<!--          <span class="description__data">93</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--        <span class="description__title"><span>-->
+<!--          <i class="el-icon-info"></i>-->
+<!--        </span>В IPOST c:</span>-->
+<!--          <span class="description__data">14.10.2020</span>-->
+<!--        </li>-->
       </ul>
       <div class="courier__foto">
         <img src="@/assets/img/foto.jpg" alt="фото">
       </div>
     </div>
 
-
+<div class="link-back">
+  <router-link to="/"><el-button size="small" round>Назад</el-button></router-link>
+</div>
   </div>
 </template>
 

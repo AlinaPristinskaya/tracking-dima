@@ -8,6 +8,11 @@
   Время доставки: --
 </div>
     </div>
+    <div class="info-link">
+      <router-link to="/courier" class="el-button el-button--default el-button--small is-round">Информация о курьере
+      </router-link>
+    </div>
+
   </div>
 </template>
 
@@ -20,13 +25,14 @@
 <style scoped lang="scss">
   .header {
     width: 100%;
-    /*padding: 10px;*/
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #289e13;
-      flex-direction: column;
       height: 100px;
+    position: relative;
+    z-index: 2;
 
     .logo {
 

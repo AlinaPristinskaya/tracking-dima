@@ -1,9 +1,14 @@
 <template>
   <div class="map">
     <GmapMap
-      :center="{lat:50,  lng:36,}"
+      :center="{lat:50.0346779120274,  lng:36.23298630169105,}"
       :zoom="10"
-      style="width: 100%; min-height: 87%"
+      style="width: 100%;
+      min-height: calc(100vh - 100px);
+      position: absolute;
+      top: 100px;
+      left: 0;
+"
       ref="mapRef"
     >
       <GmapMarker
@@ -14,6 +19,7 @@
         :clickable="true"
         :draggable="true"
         @click="center=m.position"
+        :icon="{ url: require('@/assets/img/marker1.png')}"
       />
     </GmapMap>
 
@@ -45,11 +51,19 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss">
 .map{
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
 }
+  .marker {
+    width: 10px;
+    height: 10px;
+    img {
+      width: 10px;
+      height: 10px;
+    }
+  }
 </style>
