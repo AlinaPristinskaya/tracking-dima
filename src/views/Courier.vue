@@ -11,7 +11,7 @@
             <span class="description__data">{{trackingInfo.Forwarder}}</span>
           </li>
         </template>
-        <template v-if="trackingInfo.Sum">
+        <template v-if="trackingInfo.ForwarderPhone">
           <li>
         <span class="description__title">
           <span>
@@ -20,12 +20,21 @@
             <a href="tel:`${trackingInfo.ForwarderPhone}`" class="description__data">{{trackingInfo.ForwarderPhone}}</a>
           </li>
         </template>
+        <template v-if="trackingInfo.Cargos">
+          <li v-for="(product, index) in trackingInfo.Cargos" :key="index">
+        <span class="description__title">
+          <span>
+            <i class="el-icon-s-goods"></i>
+          </span>Товар:</span>
+            <span class="description__data">{{product.CargoNameCode}} - {{product.CargoCount}} шт.</span>
+          </li>
+        </template>
         <template v-if="trackingInfo.Sum">
           <li>
         <span class="description__title">
           <span>
             <i class="el-icon-s-finance"></i>
-          </span>Стоимость:</span>
+          </span>Сумма:</span>
             <span class="description__data">{{trackingInfo.Sum}} грн.</span>
           </li>
         </template>
@@ -120,9 +129,13 @@
     padding-right: 10px;
     font-size: 14px;
     font-weight: 600;
-    white-space: nowrap;
+
     a {
       color: #2c3e50;
+    }
+    &__title {
+      white-space: nowrap;
+      margin-right: 15px;
     }
     li {
       display: flex;
@@ -135,10 +148,8 @@
       i {
         margin-right: 10px;
       }
-
     }
     &__data {
-
     }
   }
 
