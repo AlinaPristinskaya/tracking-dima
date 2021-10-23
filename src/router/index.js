@@ -12,11 +12,19 @@ const routes = [
   },
   {
     path: '/courier',
-    name: 'Courier',
+    name: 'courier',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Courier.vue')
+  },
+  {
+    path: '/delivery-done',
+    name: 'deliveryDone',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/DeliveryDone')
   }
 ]
 

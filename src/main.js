@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import style from '@/assets/css/style.css'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuex from 'vuex'
 import store from './store';
@@ -22,7 +21,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  style,
   store,
   render: h => h(App),
   mounted () {
