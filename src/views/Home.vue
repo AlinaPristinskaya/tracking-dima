@@ -1,5 +1,5 @@
-<template>
-  <div class="home">
+<template  >
+  <div class="home" v-if="trackingInfo && trackingInfo.PointState === '0'">
     <Header
       :estimate="trackingInfo.EstimateTime"
     />
@@ -44,9 +44,14 @@
       Map,
       Header,
     },
+    created() {
+
+    },
     mounted() {
+
       this.getTrackingInfo()
-      setInterval(this.getTrackingInfo, 1000)
+      setInterval(this.getTrackingInfo, 15000)
+      console.log('trackingInfo', this.trackingInfo)
     },
     methods: {
       getTrackingInfo() {
@@ -54,6 +59,7 @@
         if (hash) {
           this.$store.dispatch('getTracking', hash)
             .then(() => {
+              //если заявка выполнена, переброс на другую страницу
               if (this.trackingInfo.PointState !== "0") {
                 this.$router.push({name: "deliveryDone"})
               }
@@ -61,7 +67,8 @@
                 {
                   position: {
                     lat: +this.trackingInfo.clientlatitude,
-                    lng: +this.trackingInfo.clientlatitude,
+                    lng: +this.trackingInfo.clientlongitude,
+
                     icon: {
                       url: require('@/assets/img/market-point.png')
                     }
@@ -87,6 +94,7 @@
                 }
               ]
             });
+
         } else {
           this.is404 = true;
         }
@@ -104,3 +112,9 @@
     },
   }
 </script>
+
+<style scoped lang="scss">
+  [v-cloack] {
+    display: none;
+  }
+</style>

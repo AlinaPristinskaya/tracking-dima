@@ -3,7 +3,7 @@
 
     <GmapMap
       :center="center[0].position"
-      :zoom="10"
+      :zoom="17"
       style="width: 100%;
       min-height: calc(100vh - 100px);
       position: absolute;
