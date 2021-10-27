@@ -11,31 +11,22 @@
       left: 0;"
       ref="mapRef"
     >
-      <GmapMarker
-        class="marker"
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        :clickable="true"
-        :draggable="false"
-        @click="center=m.position"
-        :icon="m.position.icon ? m.position.icon : null"
-      />
-      <!--tooltip-->
-<!--      <gmap-info-window-->
-<!--        :options="infoOptions"-->
-<!--        :position="infoWindowPos"-->
-<!--        :opened="infoWinOpen"-->
-<!--      >-->
-<!--        <div v-html="infoContent"></div>-->
-<!--      </gmap-info-window>-->
+<!--      <GmapMarker-->
+<!--        class="marker"-->
+<!--        :key="index"-->
+<!--        v-for="(m, index) in mark"-->
+<!--        :position="m.position"-->
+<!--        :clickable="true"-->
+<!--        :draggable="false"-->
+<!--        :icon="m.position.icon ? m.position.icon : null"-->
+<!--      />-->
+
     </GmapMap>
 
   </div>
 </template>
 
 <script>
-  // import {mapGetters} from "vuex";
 
   export default {
     name: "Map",
@@ -46,50 +37,52 @@
       center: {
         type: Array,
       }
-
   }
   ,
     data: () => ({
+      mark: {},
 
-      //настройки для tooltip к маркеру.
-      // infoContent: 'hello',
-      // infoOptions: {
-      //   pixelOffset: {
-      //     width: 0,
-      //     height: -35
-      //   },
-      //   },
-      // infoWindowPos: {
-      //   lat: 50.0346779120274,
-      //   lng: 36.23298630169105,
-      // },
-      // infoWinOpen: true,
-      estimate: "",
-      // markers: [
-      //   {
-      //     position: {
-      //       lat: 50.0346779120274,
-      //       lng: 36.23298630169105,
-      //       icon: {
-      //    url: require('@/assets/img/marker1.png')
-      //       }
-      //     },
-      //
-      //   },
-      //   {
-      //     position: {
-      //       lat: 50,
-      //       lng: 36,
-      //     },
-      //   },
-      // ],
-      currentPlace: null
     }),
 
     mounted () {
+    this.getslider()
+
     },
     methods: {
+      getslider() {
+        this.$refs.mapRef.$mapPromise.then(() => {
+          this.initSlidingMarker(this.$refs.mapRef.$mapObject)
+        })
+      },
+      initSlidingMarker(map){
 
+        const SlidingMarker = require('marker-animate-unobtrusive')
+        SlidingMarker.initializeGlobally()
+        this.mark = new SlidingMarker({
+          map: map,
+          position: this.markers[1].position,
+          icon:  require('@/assets/img/marker-truck.png'),
+          duration: 2000
+        });
+
+        new SlidingMarker({
+          map: map,
+          position: this.markers[0].position,
+
+        });
+      }
+    },
+    watch: {
+      markers: function (marker) {
+        if(this.mark.position) {
+          this.mark.setEasing('linear');
+
+          this.mark.setPosition({
+            lat: marker[1].position.lat,
+            lng: marker[1].position.lng,
+          });
+        }
+      }
     },
     computed: {
 
