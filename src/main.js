@@ -6,10 +6,11 @@ import 'element-ui/lib/theme-chalk/index.css';
 import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuex from 'vuex'
 import store from './store';
+import settings from '@/../public/settings.js'
 
 Vue.use(VueGoogleMaps, {
     load: {
-      key: 'AIzaSyAuhH6tu0nZqH419pzeccGhdxlr4wevY1k ',
+      key: 'AIzaSyAuhH6tu0nZqH419pzeccGhdxlr4wevY1k',
       libraries: 'places',
     },
   }
@@ -20,6 +21,7 @@ Vue.use(ElementUI);
 Vue.config.productionTip = false
 
 new Vue({
+  settings,
   router,
   store,
   render: h => h(App),

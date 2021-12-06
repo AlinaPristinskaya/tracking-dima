@@ -29,35 +29,6 @@
             <span class="description__data">{{product.CargoNameCode}} - {{product.CargoCount}} шт.</span>
           </li>
         </template>
-        <template v-if="trackingInfo.Sum">
-          <li>
-        <span class="description__title">
-          <span>
-            <i class="el-icon-s-finance"></i>
-          </span>Сумма:</span>
-            <span class="description__data">{{trackingInfo.Sum}} грн.</span>
-          </li>
-        </template>
-
-
-<!--        <li>-->
-<!--        <span class="description__title"><span>-->
-<!--          <i  style="width: 16px; height: 16px; " class="el-icon-s-data"></i>-->
-<!--        </span>Рейтинг:</span>-->
-<!--          <span class="description__data"> <el-rate v-model="value1"></el-rate></span>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--        <span class="description__title"><span>-->
-<!--          <i class="el-icon-s-promotion"></i>-->
-<!--        </span>Доставка</span>-->
-<!--          <span class="description__data">93</span>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--        <span class="description__title"><span>-->
-<!--          <i class="el-icon-info"></i>-->
-<!--        </span>В IPOST c:</span>-->
-<!--          <span class="description__data">14.10.2020</span>-->
-<!--        </li>-->
       </ul>
       <div class="courier__foto">
         <img src="@/assets/img/foto.jpg" alt="фото">

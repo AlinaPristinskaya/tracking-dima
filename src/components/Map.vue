@@ -11,16 +11,6 @@
       left: 0;"
       ref="mapRef"
     >
-<!--      <GmapMarker-->
-<!--        class="marker"-->
-<!--        :key="index"-->
-<!--        v-for="(m, index) in mark"-->
-<!--        :position="m.position"-->
-<!--        :clickable="true"-->
-<!--        :draggable="false"-->
-<!--        :icon="m.position.icon ? m.position.icon : null"-->
-<!--      />-->
-
     </GmapMap>
 
   </div>
@@ -51,24 +41,21 @@
     methods: {
       getslider() {
         this.$refs.mapRef.$mapPromise.then(() => {
-          this.initSlidingMarker(this.$refs.mapRef.$mapObject)
+            this.initSlidingMarker(this.$refs.mapRef.$mapObject)
         })
       },
       initSlidingMarker(map){
-
         const SlidingMarker = require('marker-animate-unobtrusive')
         SlidingMarker.initializeGlobally()
         this.mark = new SlidingMarker({
           map: map,
           position: this.markers[1].position,
           icon:  require('@/assets/img/marker-truck.png'),
-          duration: 2000
+          duration: 15000
         });
-
         new SlidingMarker({
           map: map,
           position: this.markers[0].position,
-
         });
       }
     },

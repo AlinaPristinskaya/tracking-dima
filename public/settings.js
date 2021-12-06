@@ -1,4 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-const settings = {
-  url: 'https://s5.vvtrack.com/f.tracking/loadData.php?hash=228606d77ed7cdf39ea9d527cdce64b4',
-};
+import axios from "axios";
+axios.defaults.baseURL = `https://${window.location.host}/f.tracking/`
+
+/** Подставляем нужный url для запроса:
+ * https://${window.location.host}/f.tracking/ (с получением текущего хоста. По умолчанию)
+ * https://track.kovalska.com/f.tracking/ (сервер c17)
+ * https://s5.vvtrack.com/f.tracking/ (с5)
+ * https://s17.vvtrack.com/f.tracking/ (с17)
+ * **/
