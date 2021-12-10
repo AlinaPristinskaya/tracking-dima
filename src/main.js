@@ -12,6 +12,8 @@ Vue.use(VueGoogleMaps, {
     load: {
       key: 'AIzaSyAuhH6tu0nZqH419pzeccGhdxlr4wevY1k',
       libraries: 'places',
+      region: 'UA',
+      language: 'uk',
     },
   }
 );

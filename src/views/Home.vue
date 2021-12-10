@@ -1,6 +1,5 @@
-<template  >
-    <div class="home" v-if="trackingInfo && trackingInfo.PointState === '0'">
-<!--  <div class="home" >-->
+<template>
+  <div class="home" v-if="trackingInfo && trackingInfo.PointState === '0'">
     <Header
       :estimate="trackingInfo.EstimateTime"
     />
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-  // @ is an alias to /src
 
   import Header from "../components/Header";
   import Map from "../components/Map";
@@ -59,21 +57,13 @@
       getTrackingInfo() {
 
         const hash = this.$route.query.hash;
-        // const test = true;
         if (hash) {
-          // if (test) {
           this.$store.dispatch('getTracking', hash)
             .then(() => {
               //если заявка выполнена, переброс на другую страницу
               if (this.trackingInfo.PointState && this.trackingInfo.PointState !== "0") {
                 this.$router.push({name: "deliveryDone"})
               }
-              /**тест**/
-              // if (this.step != 0) {
-              //   this.trackingInfo.latitude = +this.trackingInfo.latitude + this.step * 0.0003;
-              //   this.trackingInfo.longitude = +this.trackingInfo.longitude + this.step * 0.0003;
-              //
-              // }
               this.markers = [
                 {
                   position: {
@@ -89,7 +79,7 @@
                 },
               ]
               /**если позиция уже обозначена => не обновлять центр**/
-              if(!this.center[0].position.lat && !this.center[0].position.lng) {
+              if (!this.center[0].position.lat && !this.center[0].position.lng) {
                 this.center = [
                   {
                     position: {
@@ -99,13 +89,12 @@
                   }
                 ]
               }
-              // this.step = this.step +1;
               this.loading = false
             });
 
         } else {
           this.$message({
-            message: 'Нет заказа',
+            message: 'Немає замовлення',
             type: 'warning',
           });
         }

@@ -1,13 +1,13 @@
 <template>
   <div class="courier">
     <div class="courier__header">
-      <span>ВАШ КУРЬЕР</span>
+      <span>ВАШ КУР'ЄР</span>
     </div>
     <div class="courier__container">
       <ul class="courier__description description">
         <template v-if="trackingInfo.Forwarder">
           <li>
-            <span class="description__title"><i  style="width: 16px; height: 16px;" class="el-icon-user-solid"></i>Имя:</span>
+            <span class="description__title"><i  style="width: 16px; height: 16px;" class="el-icon-user-solid"></i>Ім'я:</span>
             <span class="description__data">{{trackingInfo.Forwarder}}</span>
           </li>
         </template>
