@@ -16,7 +16,7 @@
     </div>
     <div class="info-link">
       <router-link :to="`/courier?hash=${this.$route.query.hash}`"
-                   class="el-button el-button--default el-button--small is-round">Інформація про кур'єру
+                   class="el-button el-button--default el-button--small is-round">Інформація про кур'єра
       </router-link>
     </div>
 
