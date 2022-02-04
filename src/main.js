@@ -6,7 +6,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuex from 'vuex'
 import store from './store';
-import settings from '@/../public/settings.js'
+import settings from '@/../public/settings.js';
+import i18n from './i18n'
+
+
 
 Vue.use(VueGoogleMaps, {
     load: {
@@ -26,6 +29,7 @@ new Vue({
   settings,
   router,
   store,
+  i18n,
   render: h => h(App),
   mounted () {
   }
