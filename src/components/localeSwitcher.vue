@@ -1,11 +1,7 @@
 <template>
   <div>
     <p>{{ $t("main.language") }}</p>
-    <el-select
-      v-model="value"
-      placeholder="Select"
-      @change="switchLocale(value)"
-    >
+    <!--  <el-select v-model="value" placeholder="Select" @change="switchLocale">
       <el-option
         class="select"
         v-for="item in formatedItems"
@@ -14,7 +10,16 @@
         :value="item.value"
       >
         <span :class="item.class"></span>
-        <span class="spanValue">{{ item.label }}</span>
+      </el-option>
+    </el-select> -->
+    <el-select @change="switchLocale" placeholder="">
+      <el-option
+        v-for="item in formatedItems"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        :class="item.class"
+        ><span :class="item.class"></span>
       </el-option>
     </el-select>
   </div>
@@ -26,6 +31,7 @@ export default {
 
   data() {
     return {
+      value: "",
       locales: process.env.VUE_APP_I18N_SUPPORTED.split(","),
       cities: [
         {
@@ -45,12 +51,10 @@ export default {
         return item === this.cities[0].value
           ? {
               value: this.cities[0].value,
-              label: this.cities[0].label,
               class: "spanFlagUk",
             }
           : {
               value: this.cities[1].value,
-              label: this.cities[1].label,
               class: "spanFlagRu",
             };
       });
@@ -60,7 +64,12 @@ export default {
     switchLocale(locale) {
       if (this.$i18n.locale !== locale) {
         this.$i18n.locale = locale;
+        localStorage.setItem("localeLang", `${locale}`);
       }
+    },
+    select() {
+      this.value = localStorage.getItem("localeLang") || "ua";
+      return this.value === "ua" ? "spanFlagUk" : "spanFlagRu";
     },
   },
 };
@@ -74,35 +83,29 @@ li {
 }
 .spanFlagUk {
   display: block;
-  content: "Uk";
-  height: 40px;
-  width: 40px;
+  content: "Ru";
+  height: 42px;
+  width: 100%;
   background-image: url(../assets/img/uk.png);
   background-repeat: no-repeat;
   background-position: left;
   background-size: contain;
-  color: black;
   padding: 0px;
 }
 .spanFlagRu {
   display: block;
   content: "Ru";
-  height: 40px;
-  width: 40px;
+  height: 42px;
+  width: 100%;
+
   background-image: url(../assets/img/ru.png);
   background-repeat: no-repeat;
   background-position: left;
   background-size: contain;
-  color: black;
   padding: 0px;
 }
 .select {
   display: flex;
   justify-content: space-between;
-}
-.spanValue {
-  text-decoration: none;
-  display: block;
-  color: black;
 }
 </style>

@@ -7,10 +7,10 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import Vuex from 'vuex'
 import store from './store';
 import settings from '@/../public/settings.js';
-import i18n from './i18n'
+import i18n from './i18n';
 
 
-
+Vue.use(ElementUI);
 Vue.use(VueGoogleMaps, {
     load: {
       key: 'AIzaSyAuhH6tu0nZqH419pzeccGhdxlr4wevY1k',
@@ -21,7 +21,7 @@ Vue.use(VueGoogleMaps, {
   }
 );
 Vue.use(Vuex)
-Vue.use(ElementUI);
+ 
 
 Vue.config.productionTip = false
 

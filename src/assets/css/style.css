@@ -87,9 +87,15 @@ select {
 a {
   text-decoration: none;
 }
-.el-select-dropdown__item {
+
+.el-input > .el-input__inner {
+  display: block;
+  content: "Ru";
+  height: 42px;
   width: 100%;
-  text-decoration: none;
+  background-image: url(../img/uk.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
   padding: 0px;
-  height: 40px;
 }

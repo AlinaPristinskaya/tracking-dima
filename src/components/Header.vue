@@ -62,6 +62,7 @@ export default {
 }
 .language {
   align-self: center;
+  width: 64px;
 }
 .info {
   width: 100%;
